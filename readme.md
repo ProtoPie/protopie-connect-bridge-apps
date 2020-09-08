@@ -12,6 +12,7 @@
 - [Arduino ESP8266 Bridgeapp demo with Websocket for Buttons](./arduino-esp8266-bridge-buttons)
 - [Node.js Bridgeapp demo with Arduino BLE](./node-bridge-arduino-ble)
 - [Android Bridgeapp demo with Arduino BLE](./android-bridge-arduino-ble)
+- [Node.js Bridgeapp demo for MQTT](./node-bridge-mqtt)
 
 # License
 

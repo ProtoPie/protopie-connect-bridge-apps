@@ -1,0 +1,12 @@
+{
+  "name": "arduino-mqtt-node-bridge",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "dependencies": {
+    "aedes": "^0.42.4",
+    "mqtt": "^4.1.0",
+    "socket.io-client": "^2.3.0"
+  }
+}
