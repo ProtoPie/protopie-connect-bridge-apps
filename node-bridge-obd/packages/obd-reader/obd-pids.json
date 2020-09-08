@@ -1,0 +1,350 @@
+{
+   "01": {
+      "00": {
+         "bytes": 4
+      },
+      "01": {
+         "bytes": 4,
+         "unit": "bytes"
+      },
+      "02": {
+         "bytes": 2
+      },
+      "03": {
+         "bytes": 2,
+         "unit": "byte"
+      },
+      "04": {
+         "bytes": 1,
+         "unit": "percent"
+      },
+      "05": {
+         "bytes": 1,
+         "unit": "celsius"
+      },
+      "06": {
+         "bytes": 1,
+         "unit": "upercent"
+      },
+      "07": {
+         "bytes": 1,
+         "unit": "upercent"
+      },
+      "08": {
+         "bytes": 1
+      },
+      "09": {
+         "bytes": 1
+      },
+      "0A": {
+         "bytes": 1
+      },
+      "0B": {
+         "bytes": 1
+      },
+      "0C": {
+         "bytes": 2,
+         "unit": "rpm"
+      },
+      "0D": {
+         "bytes": 1,
+         "unit": "km"
+      },
+      "0E": {
+         "bytes": 1
+      },
+      "0F": {
+         "bytes": 1,
+         "unit": "celsius"
+      },
+      "10": {
+         "bytes": 2,
+         "unit": "grams"
+      },
+      "11": {
+         "bytes": 1
+      },
+      "12": {
+         "bytes": 1
+      },
+      "13": {
+         "bytes": 1,
+         "unit": "num"
+      },
+      "14": {
+         "bytes": 2,
+         "unit": "volts"
+      },
+      "15": {
+         "bytes": 2
+      },
+      "16": {
+         "bytes": 2
+      },
+      "17": {
+         "bytes": 2
+      },
+      "18": {
+         "bytes": 2
+      },
+      "19": {
+         "bytes": 2
+      },
+      "1A": {
+         "bytes": 2
+      },
+      "1B": {
+         "bytes": 2
+      },
+      "1C": {
+         "bytes": 1,
+         "unit": "num"
+      },
+      "1D": {
+         "bytes": 1
+      },
+      "1E": {
+         "bytes": 1
+      },
+      "1F": {
+         "bytes": 2,
+         "unit": "sec"
+      },
+      "20": {
+         "bytes": 4
+      },
+      "21": {
+         "bytes": 2,
+         "unit": "km2"
+      },
+      "22": {
+         "bytes": 2
+      },
+      "23": {
+         "bytes": 2
+      },
+      "24": {
+         "bytes": 4
+      },
+      "25": {
+         "bytes": 4
+      },
+      "26": {
+         "bytes": 4
+      },
+      "27": {
+         "bytes": 4
+      },
+      "28": {
+         "bytes": 4
+      },
+      "29": {
+         "bytes": 4
+      },
+      "2A": {
+         "bytes": 4
+      },
+      "2B": {
+         "bytes": 4
+      },
+      "2C": {
+         "bytes": 1
+      },
+      "2D": {
+         "bytes": 1
+      },
+      "2E": {
+         "bytes": 1
+      },
+      "2F": {
+         "bytes": 1,
+         "unit": "percent"
+      },
+      "30": {
+         "bytes": 1
+      },
+      "31": {
+         "bytes": 2
+      },
+      "32": {
+         "bytes": 2
+      },
+      "33": {
+         "bytes": 1,
+         "unit": "kPa"
+      },
+      "34": {
+         "bytes": 4
+      },
+      "35": {
+         "bytes": 4
+      },
+      "36": {
+         "bytes": 4
+      },
+      "37": {
+         "bytes": 4
+      },
+      "38": {
+         "bytes": 4
+      },
+      "39": {
+         "bytes": 4
+      },
+      "3A": {
+         "bytes": 4
+      },
+      "3B": {
+         "bytes": 4
+      },
+      "3C": {
+         "bytes": 2
+      },
+      "3D": {
+         "bytes": 2
+      },
+      "3E": {
+         "bytes": 2
+      },
+      "3F": {
+         "bytes": 2
+      },
+      "40": {
+         "bytes": 4
+      },
+      "41": {
+         "bytes": 4
+      },
+      "42": {
+         "bytes": 2,
+         "unit": "V"
+      },
+      "43": {
+         "bytes": 2
+      },
+      "44": {
+         "bytes": 2
+      },
+      "45": {
+         "bytes": 1,
+         "unit": "percent"
+      },
+      "46": {
+         "bytes": 1,
+         "unit": "celsius"
+      },
+      "47": {
+         "bytes": 1
+      },
+      "48": {
+         "bytes": 1
+      },
+      "49": {
+         "bytes": 1
+      },
+      "4A": {
+         "bytes": 1
+      },
+      "4B": {
+         "bytes": 1
+      },
+      "4C": {
+         "bytes": 1
+      },
+      "4D": {
+         "bytes": 2
+      },
+      "4E": {
+         "bytes": 2
+      },
+      "4F": {
+         "bytes": 4
+      },
+      "50": {
+         "bytes": 4
+      },
+      "51": {
+         "bytes": 1,
+         "unit": "num"
+      },
+      "52": {
+         "bytes": 1
+      },
+      "53": {
+         "bytes": 2
+      },
+      "54": {
+         "bytes": 2
+      },
+      "55": {
+         "bytes": 2
+      },
+      "56": {
+         "bytes": 2
+      },
+      "57": {
+         "bytes": 2
+      },
+      "58": {
+         "bytes": 2
+      },
+      "59": {
+         "bytes": 2
+      },
+      "5A": {
+         "bytes": 1,
+         "unit": "percent"
+      },
+      "5B": {
+         "bytes": 1
+      },
+      "5C": {
+         "bytes": 1,
+         "unit": "celsius"
+      },
+      "5D": {
+         "bytes": 2
+      },
+      "5E": {
+         "bytes": 2,
+         "unit": "Lh"
+      },
+      "5F": {
+         "bytes": 1
+      },
+      "61": {
+         "bytes": 1,
+         "unit": "ipercent"
+      },
+      "62": {
+         "bytes": 1,
+         "unit": "ipercent"
+      },
+      "67": {
+         "bytes": 3
+      },
+      "6B": {
+         "bytes": 5
+      },
+      "6D": {
+         "bytes": 6
+      },
+      "6E": {
+         "bytes": 5
+      },
+      "73": {
+         "bytes": 5
+      },
+      "78": {
+         "bytes": 9
+      },
+      "7F": {
+         "bytes": 13,
+         "unit": "seconds"
+      },
+      "A6": {
+         "bytes": 4,
+         "unit": "hm"
+      }
+   }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "obd-bluetooth-node-bridge",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "cd packages/obd-reader && npm install",
+    "start": "node index.js",
+    "sim": "node index.js --sim"
+  },
+  "keywords": [],
+  "author": "@jimmy",
+  "private": true,
+  "dependencies": {
+    "socket.io-client": "^2.3.0"
+  }
+}

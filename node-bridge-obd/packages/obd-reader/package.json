@@ -1,0 +1,16 @@
+{
+  "name": "odb-scanner",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "node test/test-obd-command.js"
+  },
+  "keywords": [],
+  "author": "@jimmy",
+  "private": true,
+  "dependencies": {
+    "bluetooth-serial-port": "^2.2.7"
+  }
+}
