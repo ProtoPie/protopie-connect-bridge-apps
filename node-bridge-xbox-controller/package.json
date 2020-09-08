@@ -1,0 +1,21 @@
+{
+  "name": "node-bridge-xbox-controller",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "demo": "http-server ./",
+    "pack:mac": "npm run pkg:mac && npm run resource && npm run bundle",
+    "pkg:mac": "pkg ./index.js --targets node10-macos-x64 --output ./dist/$npm_package_version/xbox-bridge",
+    "resource": "cp ./node_modules/node-hid/build/Release/HID.node ./dist/$npm_package_version",
+    "bundle": "tar -czvf ./dist/xbox-bridge-$npm_package_version.gz ./dist/$npm_package_version"
+  },
+  "dependencies": {
+    "node-hid": "^1.3.0",
+    "socket.io-client": "^2.3.0"
+  },
+  "devDependencies": {
+    "http-server": "^0.12.3"
+  }
+}

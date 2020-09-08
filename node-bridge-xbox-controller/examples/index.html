@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Game Controller Tester</title>
+    <script>
+      let debugElement;
+    </script>
+    <script src="https://unpkg.com/socket.io-client@2.3.0/dist/socket.io.js"></script>
+    <script src="../connect-client.js"></script>
+    <script src="game-controller.js"></script>
+    <script src="stick-canvas.js"></script>
+  </head>
+  <body>
+    <div id="gamepad">
+      <div>
+        <input
+          type="radio"
+          id="xbox-elite2"
+          name="gamepad"
+          value="xbox-elite2"
+          checked
+        />
+        <label for="xbox-elite2">XBox Elite 2</label>
+      </div>
+      <div>
+        <input
+          type="radio"
+          id="web-gamepad"
+          name="gamepad"
+          value="web-gamepad"
+        />
+        <label for="web-gamepad">Gamepad (Web)</label>
+      </div>
+    </div>
+    <div id="sticks"></div>
+    <div id="buttons"></div>
+    <div id="axes0"></div>
+    <div id="axes1"></div>
+  </body>
+  <script>
+    const buttonsElement = document.querySelector('#buttons');
+    const axes0Element = document.querySelector('#axes0');
+    const axes1Element = document.querySelector('#axes1');
+
+    function append(parent, label, value) {
+      const e = document.createElement('div');
+      e.textContent = `${label}: ${value}`;
+      parent.appendChild(e);
+    }
+
+    function update(axes0, axes1, buttons) {
+      buttonsElement.textContent = '';
+
+      for (b in buttons) {
+        append(buttonsElement, `button[${b}]`, JSON.stringify(buttons[b]));
+      }
+
+      if (axes0.length > 0) {
+        axes0Element.textContent = '';
+
+        for (a in axes0) {
+          append(axes0Element, `axes[${a}]`, JSON.stringify(axes0[a]));
+        }
+
+        window.stickCanvas[0].draw(axes0[0], axes0[1]);
+      }
+
+      if (axes1.length > 0) {
+        axes1Element.textContent = '';
+
+        for (a in axes1) {
+          append(axes1Element, `axes[${a}]`, JSON.stringify(axes1[a]));
+        }
+
+        window.stickCanvas[1].draw(axes1[0], axes1[1]);
+      }
+    }
+
+    function runConnectClient() {
+      const client = new ConnectClient(io, 'http://localhost:9981');
+      client.on('message', ({ messageId, value }) => {
+        const emptyButtons = new Array(16).fill(0);
+
+        if (messageId === 'xbox') {
+          const { axes, buttons } = JSON.parse(value)[0];
+          update(axes.slice(0, 2), axes.slice(2), buttons);
+        } else if (messageId.startsWith('axes')) {
+          const coord = value.split(',').map(n => Number.parseFloat(n));
+          if (messageId === 'axes0') {
+            update(coord, [], emptyButtons);
+          } else {
+            update([], coord, emptyButtons);
+          }
+        } else if (messageId.startsWith('button')) {
+          const index = Number.parseInt(messageId.split('-')[1]);
+
+          emptyButtons[index] = value;
+          update([], [], emptyButtons);
+        }
+      });
+
+      client.connect();
+
+      return client;
+    }
+
+    function runGameController() {
+      const controller = new GameController();
+
+      controller.on('event', (data) => {
+        const emptyButtons = new Array(16).fill(0);
+
+        if (data.length > 0) {
+          const { axes, buttons } = data[0];
+          const axes0 = axes.slice(0, 2);
+          const axes1 = axes.slice(2);
+
+          update(axes0, axes1, emptyButtons);
+
+          buttons.forEach((b, i) => {
+            if (b.pressed) {
+              emptyButtons[i] = b.value;
+              update(axes0, axes1, emptyButtons);
+            }
+          });
+        }
+      });
+      controller.connect();
+
+      return controller;
+    }
+
+    function setupControls() {
+      const gamepadInputs = document.querySelectorAll('input[name="gamepad"]');
+
+      gamepadInputs.forEach((g) =>
+        g.addEventListener('change', (e) => {
+          if (window.gameController) {
+            window.gameController.disconnect();
+          }
+
+          window.gameController =
+            e.target.value === 'xbox-elite2'
+              ? runConnectClient()
+              : runGameController();
+        })
+      );
+
+      const sticks = document.querySelector('#sticks');
+
+      window.stickCanvas = ['stick1', 'stick2'].map((s) => {
+        const sc = new StickCanvas({
+          name: s,
+          size: 200,
+          backgroundColor: 'transparent',
+        });
+
+        sticks.appendChild(sc.canvas);
+
+        return sc;
+      });
+    }
+
+    function main() {
+      setupControls();
+
+      window.gameController = runConnectClient();
+    }
+
+    main();
+  </script>
+</html>
