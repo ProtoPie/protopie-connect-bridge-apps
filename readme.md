@@ -13,6 +13,7 @@
 - [Node.js Bridgeapp demo with Arduino BLE](./node-bridge-arduino-ble)
 - [Android Bridgeapp demo with Arduino BLE](./android-bridge-arduino-ble)
 - [Node.js Bridgeapp demo for MQTT](./node-bridge-mqtt)
+- [Node.js Bridgeapp demo for G29 Wheel](./node-bridge-g29): [Logitech G29 Racing Wheel](https://www.logitechg.com/en-us/products/driving/driving-force-racing-wheel.html)
 
 # License
 

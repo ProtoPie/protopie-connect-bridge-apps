@@ -1,0 +1,16 @@
+{
+  "name": "g29-node-bridgeapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "logitech-g29": "^1.0.16",
+    "socket.io-client": "^2.3.0"
+  }
+}
