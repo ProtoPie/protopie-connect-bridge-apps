@@ -10,6 +10,7 @@
 - [Arduino WIFI Rev2 Bridgeapp demo with custom Websocket over network](./arduino-wifi-rev2-bridge-websocket)
 - [Arduino ESP8266 Bridgeapp demo with Websocket for Echo server](./arduino-esp8266-bridge-websocket)
 - [Arduino ESP8266 Bridgeapp demo with Websocket for Buttons](./arduino-esp8266-bridge-buttons)
+- [Node.js Bridgeapp demo with Arduino BLE](./node-bridge-arduino-ble)
 
 # License
 

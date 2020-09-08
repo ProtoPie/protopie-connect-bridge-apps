@@ -1,0 +1,16 @@
+{
+  "name": "protopie-ble-node-bridge",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "UNLICENSED",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "dependencies": {
+    "@abandonware/noble": "^1.9.2-7",
+    "async": "^3.2.0",
+    "noble": "^1.9.1",
+    "socket.io-client": "^2.3.0",
+    "xpc-connect": "^2.0.0"
+  }
+}
