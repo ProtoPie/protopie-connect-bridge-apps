@@ -6,7 +6,8 @@
 
 - [Anroid Bridgeapp for Arduino USB](./android-bridge-arduino-usb)
 - [Node.js Bridgeapp for Arduino Serial](./node-bridge-arduino-serial)
-- [Node.js Bridgeapp demo with Arduino Buttons](./node-bridge-arduino-serial)
+- [Node.js Bridgeapp demo with Arduino Buttons](./node-bridge-arduino-buttons)
+- [Arduino Bridgeapp demo with Arduino WIFI Rev2 and Custom Websocket](./arduino-wifi-rev2-bridge-websocket)
 
 # License
 
