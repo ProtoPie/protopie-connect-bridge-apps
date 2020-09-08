@@ -8,7 +8,8 @@
 - [Node.js Bridgeapp for Arduino Serial](./node-bridge-arduino-serial)
 - [Node.js Bridgeapp demo with Arduino Buttons](./node-bridge-arduino-buttons)
 - [Arduino WIFI Rev2 Bridgeapp demo with custom Websocket over network](./arduino-wifi-rev2-bridge-websocket)
-- [Arduino ESP8266 Bridgeapp demo with Websocket over network](./arduino-esp8266-bridge-websocket)
+- [Arduino ESP8266 Bridgeapp demo with Websocket for Echo server](./arduino-esp8266-bridge-websocket)
+- [Arduino ESP8266 Bridgeapp demo with Websocket for Buttons](./arduino-esp8266-bridge-buttons)
 
 # License
 
