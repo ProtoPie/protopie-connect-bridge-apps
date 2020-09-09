@@ -48,7 +48,7 @@ function init_g29(socket) {
       debug: false
     },
     function(err) {
-      console.log(‘err’, err)
+      console.log(`err`, err)
     }
   )
 }
