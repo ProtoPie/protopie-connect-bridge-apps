@@ -6,7 +6,8 @@
   "scripts": {
     "postinstall": "cd packages/obd-reader && npm install",
     "start": "node index.js",
-    "sim": "node index.js --sim"
+    "sim": "node index.js --sim",
+    "list": "node packages/list"
   },
   "keywords": [],
   "author": "@jimmy",

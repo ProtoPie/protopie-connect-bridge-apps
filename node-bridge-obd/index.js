@@ -1,5 +1,5 @@
 const io = require('socket.io-client');
-const { OBDReader, OBDDevices } = require('./packages/obd-reader');
+const { OBDReader, findOBD } = require('./packages/obd-reader');
 const { ConnectClient } = require('./packages/connect-client');
 const { OBDSimulator } = require('./packages/obd-simulator');
 const { sleep } = require('./packages/lib');
@@ -71,25 +71,32 @@ function sendMessage(messageId, value) {
 }
 
 async function runOBDReader() {
-  console.log('[OBD] Scanning ...');
-  await reader.connect(OBDDevices.OBDLinkMaxPlus);
+  try {
+    console.log('[OBD] Scanning ...');
 
-  reader.on('data', ({ commands }) => {
-    for (let i = 0; i < commands.length; ++i) {
-      sendMessage(commands[0].pid, commands[0].value);
-    }
-  });
+    const address = await findOBD('OBD');
+    await reader.connect(address);
 
-  reader.on('connect', () => {
-    console.log('[OBD] Connected');
-    setInterval(() => {
-      let i = 0;
-      while (requestPIDS[i]) {
-        reader.write(`01${requestPIDS[i++]}1`);
-        sleep(50);
+    reader.on('data', ({ commands }) => {
+      for (let i = 0; i < commands.length; ++i) {
+        sendMessage(commands[0].pid, commands[0].value);
       }
-    }, requestInterval);
-  });
+    });
+
+    reader.on('connect', () => {
+      console.log('[OBD] Connected');
+      setInterval(() => {
+        let i = 0;
+        while (requestPIDS[i]) {
+          reader.write(`01${requestPIDS[i++]}1`);
+          sleep(50);
+        }
+      }, requestInterval);
+    });
+  } catch (e) {
+    console.log('[OBD]', e.toString());
+    process.exit(-1);
+  }
 }
 
 function runOBDSimulator() {
