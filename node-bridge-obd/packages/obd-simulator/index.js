@@ -1,4 +1,13 @@
-const simulatorData = require('./simulator.json');
+function args() {
+  const i = process.argv.findIndex((a) => a.includes('--data'));
+  if (i > -1) {
+    return `./${process.argv[i].split('=')[1]}`
+  } else {
+    return './simulator.json'
+  }
+}
+
+const simulatorData = require(args() || './simulator2.json');
 
 class OBDSimulator {
   constructor() {
@@ -10,7 +19,11 @@ class OBDSimulator {
       this._index = 0;
     }
 
-    return simulatorData[this._index++];
+    const data = simulatorData[this._index++];
+    return {
+      pid: data.pid,
+      value: data.value.toString(),
+    };
   }
 }
 
