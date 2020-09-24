@@ -18,6 +18,8 @@ npm start
 
 # Demo
 
+<video style="width:1024px" controls src="demo.mp4" type="video/mp4"/>
+
 # Licenses
 
 @ Studio XID
