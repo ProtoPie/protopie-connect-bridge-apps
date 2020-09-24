@@ -1,0 +1,15 @@
+{
+  "name": "node-bridgeapp",
+  "version": "1.0.0",
+  "description": "Basic bridge app for Node.js",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "@jimmy",
+  "license": "private",
+  "dependencies": {
+    "socket.io-client": "^2.3.0"
+  }
+}
