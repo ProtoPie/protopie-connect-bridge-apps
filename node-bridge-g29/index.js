@@ -1,13 +1,16 @@
-const io = require('socket.io-client')
-const g = require('logitech-g29')
-const address = 'http://localhost:9981'
-const socket = io(address)
+const io = require('socket.io-client');
+const g = require('logitech-g29');
+const address = 'http://localhost:9981';
+const socket = io(address, {
+  reconnectionAttempts: 5,
+  timeout: 1000 * 10
+});
 
-process.on('SIGINT', function() {
-  socket.disconnect()
-  g.disconnect()
-  process.exit()
-})
+process.on('SIGINT', function () {
+  socket.disconnect();
+  g.disconnect();
+  process.exit();
+});
 
 function init_g29(socket) {
   const events = [
@@ -29,41 +32,62 @@ function init_g29(socket) {
     'wheel-button_spinner',
     'wheel-button_share',
     'wheel-button_option',
-    'wheel-button_playstation'
-  ]
+    'wheel-button_playstation',
+  ];
 
   for (const event of events) {
-    g.on(event, function(val) {
-      console.log('G29 Event', event, val)
+    g.on(event, function (val) {
+      console.log('G29 Event', event, val);
       socket.emit('ppMessage', {
         messageId: event,
-        value: val
-      })
-    })
+        value: val,
+      });
+    });
   }
 
-  console.log('Connect to G29')
+  console.log('Connecting to G29');
   g.connect(
     {
-      debug: false
+      debug: false,
     },
-    function(err) {
-      console.log(`err`, err)
+    function (err) {
+      if (err) {
+        console.log('Connecting to G29 failed', err.toString())
+        return
+      }
+
+      console.log('Connecting to G29 succeed', err.toString())
     }
-  )
+  );
 }
 
+socket.on('connect_error', err => {
+  console.error('Socket disconnected, error', err.toString());
+});
+
+socket.on('connect_timeout', () => {
+  console.error('Socket disconnected, timeout');
+});
+
+socket.on('reconnect_failed', () => {
+  console.error('Socket disconnected, retry_timeout');
+});
+
+socket.on('reconnect_attempt', count => {
+  console.error(`Retry to connect #${count}, Please make sure ProtoPie Connect is running on ${address}`);
+});
+
 socket.on('connect', () => {
-  console.log('Socket has been connected to', address)
+  console.log('Socket has been connected to', address);
   init_g29(socket)
-})
+});
 
 socket.on('disconnect', () => {
-  console.log('Socket disconnected')
-})
+  console.log('Socket disconnected');
+});
 
-socket.on('ppMessage', data => {
-  console.log('Receive a message from Connect', data)
-  g.leds('')
-  g.leds(data.value)
-})
+socket.on('ppMessage', (data) => {
+  console.log('Receive a message from Connect', data);
+  g.leds('');
+  g.leds(data.value);
+});
