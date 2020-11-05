@@ -13,14 +13,14 @@ function exit() {
 }
 
 async function askForMessageId() {
-  const messageId = await ask('Please input a message id: ');
+  const value = await ask('Please input a message id: ');
 
-  if (messageId === '') {
+  if (value === '') {
     exit();
   }
 
-  console.log(`\tSend '${messageId}' message to Connect`);
-  socket.emit('ppMessage', { messageId });
+  console.log(`\tSend '${value}' message to Connect`);
+  socket.emit('ppMessage', { messageId: 'chat', value: false });
 
   await askForMessageId();
 }
