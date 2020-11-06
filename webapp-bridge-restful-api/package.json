@@ -1,0 +1,14 @@
+{
+  "name": "webapp-bridge-restful-api",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "http-server ./"
+  },
+  "dependencies": {
+    "socket.io-client": "^2.3.0"
+  },
+  "devDependencies": {
+    "http-server": "^0.12.3"
+  }
+}

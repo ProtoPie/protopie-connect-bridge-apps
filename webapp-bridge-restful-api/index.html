@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ProtoPie Brideapp with RESTful APIs</title>
+    <script src="https://unpkg.com/socket.io-client@2.3.0/dist/socket.io.js"></script>
+  </head>
+  <body>
+    <button onclick="handle_click()">Get Luke</button>
+    <script>
+      // ProtoPie address for socket.io communication
+      const address = 'http://localhost:9981';
+
+      async function handle_click() {
+        try {
+          const res = await fetch('https://swapi.dev/api/people/1/');
+          const person = await res.json();
+
+          // send the name of perosn received
+          const socket = io(address, {
+            transports: ['websocket'],
+          });
+          socket
+            .on('error', (err) =>
+              alert(`ProtoPie Connect cannot found at ${address}`)
+            )
+            .on('connect', async () => {
+              // send people's name to ProtoPie Connect
+              socket.emit('ppMessage', {
+                messageId: 'people',
+                value: person.name,
+              });
+            });
+        } catch (e) {
+          console.log(e);
+          alert('Fetching failed. Please check the endpoint or its condition');
+        }
+      }
+    </script>
+  </body>
+</html>
