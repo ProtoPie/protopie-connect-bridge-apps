@@ -20,7 +20,7 @@ async function askForMessageId() {
   }
 
   console.log(`\tSend '${value}' message to Connect`);
-  socket.emit('ppMessage', { messageId: 'chat', value: false });
+  socket.emit('ppMessage', { messageId: 'ROTATE', value: false });
 
   await askForMessageId();
 }
