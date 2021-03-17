@@ -1,0 +1,12 @@
+bidict==0.21.2
+certifi==2020.12.5
+chardet==4.0.0
+greenlet==0.4.17
+idna==2.10
+msgpack==1.0.0
+pynvim==0.4.2
+python-engineio==3.14.2
+python-socketio==4.6.1
+requests==2.25.1
+six==1.15.0
+urllib3==1.26.4
