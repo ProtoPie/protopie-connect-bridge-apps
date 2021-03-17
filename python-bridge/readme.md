@@ -13,7 +13,7 @@ pip3 install -r requirements.txt
 ## Run
 
 ```sh
-python3 connect-client.py
+python3 client.py
 ```
 
 # Licenses
