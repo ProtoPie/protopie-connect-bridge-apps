@@ -1,0 +1,77 @@
+* {
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+h1 {
+  text-align: center;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+}
+
+.state-initial {
+  width: 300px;
+}
+
+.state-connecting {
+  display: none;
+}
+
+.state-connected {
+  display: none;
+  position: relative;
+  width: 520px;
+}
+
+.send {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200px;
+}
+
+.received {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 300px;
+}
+
+input {
+  display: block;
+  border: solid 1px #666666;
+  border-radius: 2px;
+  padding: 10px;
+  margin-bottom: 8px;
+  width: 100%;
+  font-size: 14px;
+}
+
+button {
+  padding: 10px;
+  width: 100%;
+  font-size: 14px;
+}
+
+#messages {
+  background-color: #eeeeee;
+  border-radius: 2px;
+  height: 400px;
+  overflow: auto;
+}
+
+#messages > div {
+  padding: 5px 10px;
+  font-size: 14px;
+}
+
+#messages > div:nth-child(odd) {
+  background: #dddddd;
+}
+
+#messages {
+  margin-bottom: 40px
+}

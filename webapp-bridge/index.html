@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>ProtoPie Connect Socket.IO Sample</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+
+  <h1>ProtoPie Connect Socket.IO Sample</h1>
+
+  <div class="main">
+    <div class="state-initial">
+      <h2>Connect</h2>
+
+      <form id="form-connect" action="">
+        <input id="address" placeholder="address" value="http://localhost:9981" />
+        <button>Connect</button>
+      </form>
+    </div>
+
+    <div class="state-connecting">
+      Connecting ...
+    </div>
+
+    <div class="state-connected">
+      <div class="send">
+        <h2>Send</h2>
+        <form id="form-send" action="">
+          <input id="messageId" placeholder="messageId" />
+          <input id="value" placeholder="value" />
+          <button>Send</button>
+        </form>
+      </div>
+
+      <div class="received">
+        <h2>Received</h2>
+        <div id="messages"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.1/socket.io.slim.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+    integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+
+  <script>
+    let socket = null;
+
+    function connect(address) {
+      // Connect to ProtoPie Communication Server
+      socket = io(address);
+      console.log("Connecting to ", address);
+
+      // Once connected, it should send 'pcs-app-register' event with name
+      socket.on('connect', function () {
+        socket.emit('pcs-app-register', {
+          name: 'Webapp',
+        });
+
+        $('.state-connecting').hide();
+        $('.state-connected').show();
+
+        console.log('Connected');
+      });
+
+      // Event 'ppMessage' are emitted when player send a message.
+      // Arguments contains 'messageId' and optionally 'value' fields.
+      socket.on('ppMessage', function (args) {
+        const messageId = args.messageId;
+        const value = args.value;
+
+        let text = new Date().toLocaleTimeString() + ' ' + messageId;
+        if (value !== null && value !== undefined & value !== '') {
+          text += '(' + value + ')';
+        }
+
+        let messages = document.getElementById('messages');
+        $('<div>').text(text).appendTo(messages);
+        messages.scrollTo(0, messages.scrollHeight);
+      });
+    }
+
+    function sendMessage(messageId, value) {
+      // In order to send a message to players, emit 'ppMessage' with messageId and value(optional).
+      socket.emit('ppMessage', {
+        messageId: messageId,
+        value: value
+      });
+    }
+
+    $(function () {
+      $('#form-connect').submit(function () {
+        $('.state-initial').hide();
+        $('.state-connecting').show();
+        connect($('#address').val());
+        return false;
+      });
+
+      $('#form-send').submit(function () {
+        sendMessage($('#messageId').val(), $('#value').val());
+        return false;
+      });
+    });
+  </script>
+
+</body>
+
+</html>
