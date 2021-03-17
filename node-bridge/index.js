@@ -12,17 +12,18 @@ function exit() {
   process.exit();
 }
 
-async function askForMessageId() {
-  const value = await ask('Please input a message id: ');
+async function askForMessage() {
+  const messageId = await ask('Please input a message id: ');
+  const value = await ask('Please input a value: ');
 
-  if (value === '') {
-    exit();
-  }
+  console.log(`\tSend '${messageId}:${value}' data to Connect`);
+  socket.emit('ppMessage', {
+    messageId,
+    value,
+    fromName: 'Node'
+  });
 
-  console.log(`\tSend '${value}' message to Connect`);
-  socket.emit('ppMessage', { messageId: 'ROTATE', value: false });
-
-  await askForMessageId();
+  await askForMessage();
 }
 
 process.on('SIGINT', function () {
@@ -46,7 +47,7 @@ socket
   })
   .on('connect', async () => {
     console.log('[SOCKETIO] connected to', address);
-    await askForMessageId();
+    await askForMessage();
   });
 
 socket.on('disconnect', () => {
