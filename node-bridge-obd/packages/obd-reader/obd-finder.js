@@ -1,6 +1,7 @@
 const { BluetoothSerialPort } = require('bluetooth-serial-port');
 
 function findOBD(name) {
+  name = name.toLowerCase()
   return new Promise(response => {
     const port = new BluetoothSerialPort();
     port.listPairedDevices((devices) => {

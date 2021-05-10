@@ -74,7 +74,7 @@ async function runOBDReader() {
   try {
     console.log('[OBD] Scanning ...');
 
-    const address = await findOBD('OBD');
+    const address = await findOBD('OBDLink');
     await reader.connect(address);
 
     reader.on('data', ({ commands }) => {
