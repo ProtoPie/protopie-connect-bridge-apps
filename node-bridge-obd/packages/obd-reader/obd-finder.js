@@ -7,14 +7,12 @@ function findOBD(name) {
     port.listPairedDevices((devices) => {
       for (d of devices) {
         if (d.name.toLowerCase().includes(name)) {
-          console.log(`${d.name} is found for OBD`)
-          response(d.address);
-        } else {
-          console.log(`${d.name} is not found for OBD`)
+          console.log(`[OBD] Found ODB device, ${d.name}`);
+          response(d);
         }
       }
 
-      throw new Error('Not found device with ' + name);
+      throw new Error('Not found device for ODB ' + name);
     });
   });
 }

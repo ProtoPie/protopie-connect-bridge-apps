@@ -78,7 +78,7 @@ class OBDReader {
   }
 
   handleData(data) {
-    console.log('data', data, data.toString());
+    console.log('[ODB] receve data', data, data.toString());
     const commands = this._command.parse(data);
 
     if (commands.length > 0) {
@@ -87,9 +87,8 @@ class OBDReader {
   }
 
   write(message) {
-    console.log('message', message);
     this._port.write(
-      new Buffer(message + '\r'),
+      new Buffer.from(message + '\r'),
       this.handleWriteResult.bind(this)
     );
   }

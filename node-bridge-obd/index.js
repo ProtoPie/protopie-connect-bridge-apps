@@ -74,8 +74,13 @@ async function runOBDReader() {
   try {
     console.log('[OBD] Scanning ...');
 
-    const address = await findOBD('OBDLink');
-    await reader.connect(address);
+    const device = await findOBD('OBDLink');
+    const { address, services } = device;
+    if (services.length == 0) {
+      throw Error('[OBD] Invalid channel', device);
+    }
+
+    await reader.connect({ address, channel: 1 });
 
     reader.on('data', ({ commands }) => {
       for (let i = 0; i < commands.length; ++i) {
