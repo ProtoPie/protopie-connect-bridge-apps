@@ -32,7 +32,7 @@ function init_g29(socket) {
     'wheel-button_spinner',
     'wheel-button_share',
     'wheel-button_option',
-    'wheel-button_playstation',
+    'wheel-button_playstation'
   ];
 
   for (const event of events) {
@@ -40,7 +40,7 @@ function init_g29(socket) {
       console.log('G29 Event', event, val);
       socket.emit('ppMessage', {
         messageId: event,
-        value: val,
+        value: val
       });
     });
   }
@@ -52,11 +52,11 @@ function init_g29(socket) {
     },
     function (err) {
       if (err) {
-        console.log('Connecting to G29 failed', err.toString())
-        return
+        console.log('Connecting to G29 failed', err.toString());
+        return;
       }
 
-      console.log('Connecting to G29 succeed', err.toString())
+      console.log('Connecting to G29 succeed');
     }
   );
 }
