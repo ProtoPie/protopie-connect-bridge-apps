@@ -9,7 +9,8 @@
 - Use your prefer HTTP server for serving index.html. This time we gonna use python3
 
 ```sh
- python3 -m http.server 8080 --directory .
+npm install
+npm start
 ```
 
 # Licenses

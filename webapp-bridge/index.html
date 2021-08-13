@@ -50,7 +50,7 @@
 
     function connect(address) {
       // Connect to ProtoPie Communication Server
-      socket = io(address);
+      socket = io(address, {transports: ['websocket']});
       console.log("Connecting to ", address);
 
       // Once connected, it should send 'pcs-app-register' event with name
