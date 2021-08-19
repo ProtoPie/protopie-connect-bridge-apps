@@ -15,8 +15,9 @@
 
 # How to use
 
+1. Please make sure that Arduino supporting ESP8266. Please refer to [Installing with Board Manager for ESP8266](https://github.com/esp8266/Arduino#installing-with-boards-manager)
 1. Run ProtoPie connect and goto `Debug` tab on dashboard
-2. Connect and upload src in arduino example to your device
+2. Connect and upload src arduino examples to your device
 3. Send message from ProtoPie connect
 4. Check the debug message on the dashboard whether the echo message from the device is coming or not.
 
