@@ -1,0 +1,21 @@
+body {
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.input-video {
+  transform: scale(-1, 1);
+  display: none;
+}
+
+.output-canvas {
+  transform: scale(-1, 1);
+  width: 600px;
+}

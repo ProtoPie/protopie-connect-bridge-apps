@@ -1,0 +1,35 @@
+{
+  "name": "connect-with-media-pipe",
+  "version": "1.0.0",
+  "description": "protopie connect with google media pipe.",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack serve --config ./webpack.config.js --mode development --env mode=finger-pointing --open",
+    "finger-pointing": "webpack serve --config ./webpack.config.js --mode development --env mode=finger-pointing --open",
+    "brightness-control": "webpack serve --config ./webpack.config.js --mode development --env mode=brightness-control --open"
+  },
+  "author": "Park Jeongbeen(Jason)",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.15.5",
+    "@babel/preset-env": "^7.15.6",
+    "babel-loader": "^8.2.2",
+    "clean-webpack-plugin": "^4.0.0",
+    "copy-webpack-plugin": "^9.0.1",
+    "css-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.3.2",
+    "style-loader": "^3.2.1",
+    "ts-loader": "^9.2.5",
+    "typescript": "^4.4.3",
+    "webpack": "^5.52.1",
+    "webpack-cli": "^4.8.0",
+    "webpack-dev-server": "^4.2.0"
+  },
+  "dependencies": {
+    "@mediapipe/camera_utils": "^0.3.1631210127",
+    "@mediapipe/drawing_utils": "^0.3.1620248257",
+    "@mediapipe/holistic": "^0.4.1628005088",
+    "fingerpose": "0.0.2",
+    "socket.io-client": "^4.2.0"
+  }
+}
