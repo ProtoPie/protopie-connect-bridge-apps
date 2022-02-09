@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ProtoPieConnect GamePad</title>
+    <script>
+      let debugElement;
+    </script>
+    <script
+      src="https://cdn.socket.io/4.4.1/socket.io.min.js"
+      integrity="sha384-fKnu0iswBIqkjxrhQCTZ7qlLHOFEgNkRmK2vaO/LbTZSXdJfAu6ewRBdwHPhBo/H"
+      crossorigin="anonymous"
+    ></script>
+    <script src="connect-client.js"></script>
+    <script src="game-controller.js"></script>
+    <script src="stick-canvas.js"></script>
+    <script src="game-controller-button-manager.js"></script>
+  </head>
+  <body>
+    <div id="sticks"></div>
+    <div id="buttons"></div>
+    <div id="axes0"></div>
+    <div id="axes1"></div>
+  </body>
+  <script src="index.js"></script>
+</html>

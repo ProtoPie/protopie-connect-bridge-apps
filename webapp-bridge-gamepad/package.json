@@ -1,0 +1,11 @@
+{
+  "name": "webapp-bridge-gamepad",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "http-server -o ./"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.0"
+  }
+}
