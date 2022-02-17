@@ -19,8 +19,8 @@ class GameControllerButtonManager {
       return GameControllerButtonManager.getInstance();
     }
 
-    this._buttons = Array.from({ length: buttonsLength });
-    this._axes = Array.from({ length: axesLength });
+    this._buttons = Array.from({ length: buttonsLength }).fill(0);
+    this._axes = Array.from({ length: axesLength }).fill(0);
     this._analogButtonIndexes = analogButtonIndexes;
     this._analogButtonSensitivity = analogButtonSensitivity;
     this._axeSensitivity = axeSensitivity;
