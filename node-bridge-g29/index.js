@@ -3,7 +3,7 @@ const g = require('logitech-g29');
 const address = 'http://localhost:9981';
 const socket = io(address, {
   reconnectionAttempts: 5,
-  timeout: 1000 * 10
+  timeout: 1000 * 10,
 });
 
 process.on('SIGINT', function () {
@@ -32,7 +32,10 @@ function init_g29(socket) {
     'wheel-button_spinner',
     'wheel-button_share',
     'wheel-button_option',
-    'wheel-button_playstation'
+    'wheel-button_playstation',
+    'pedals-gas',
+    'pedals-brake',
+    'pedals-clutch',
   ];
 
   for (const event of events) {
@@ -40,7 +43,7 @@ function init_g29(socket) {
       console.log('G29 Event', event, val);
       socket.emit('ppMessage', {
         messageId: event,
-        value: val
+        value: val,
       });
     });
   }
@@ -61,7 +64,7 @@ function init_g29(socket) {
   );
 }
 
-socket.on('connect_error', err => {
+socket.on('connect_error', (err) => {
   console.error('Socket disconnected, error', err.toString());
 });
 
@@ -73,13 +76,15 @@ socket.on('reconnect_failed', () => {
   console.error('Socket disconnected, retry_timeout');
 });
 
-socket.on('reconnect_attempt', count => {
-  console.error(`Retry to connect #${count}, Please make sure ProtoPie Connect is running on ${address}`);
+socket.on('reconnect_attempt', (count) => {
+  console.error(
+    `Retry to connect #${count}, Please make sure ProtoPie Connect is running on ${address}`
+  );
 });
 
 socket.on('connect', () => {
   console.log('Socket has been connected to', address);
-  init_g29(socket)
+  init_g29(socket);
 });
 
 socket.on('disconnect', () => {
