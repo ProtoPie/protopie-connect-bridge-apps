@@ -36,6 +36,7 @@ function init_g29(socket) {
     'pedals-gas',
     'pedals-brake',
     'pedals-clutch',
+    'shifter-gear'
   ];
 
   for (const event of events) {
