@@ -25,6 +25,7 @@ port.on('open', function() {
 
   socket.on('connect', () => {
     console.log('Socket connected to', address);
+    socket.emit("ppBridgeApp", { name: "Arduino serial" });
   });
 
   socket.on('disconnect', () => {

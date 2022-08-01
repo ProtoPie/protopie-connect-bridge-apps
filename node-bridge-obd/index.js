@@ -118,7 +118,7 @@ async function main(argv) {
 
   connect.on('connect', async () => {
     console.log('[Connect] Connected to', address);
-
+    connect.emit('ppBridgeApp', { name: 'OBD2' });
     if (!sim) {
       console.log('[Main] OBDReader started');
       await runOBDReader();

@@ -8,6 +8,7 @@ function connectToConnect(address, sendToMQTT) {
 
   socket.on('connect', () => {
     console.log('[SOCKET] Socket connected', address);
+    socket.emit('ppBridgeApp', { name: 'MQTT' });
   });
 
   socket.on('disconnect', () => {

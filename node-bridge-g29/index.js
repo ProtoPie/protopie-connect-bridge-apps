@@ -85,6 +85,7 @@ socket.on('reconnect_attempt', (count) => {
 
 socket.on('connect', () => {
   console.log('Socket has been connected to', address);
+  socket.emit("ppBridgeApp", { name: "G29" });
   init_g29(socket);
 });
 

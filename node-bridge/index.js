@@ -47,6 +47,7 @@ socket
   })
   .on('connect', async () => {
     console.log('[SOCKETIO] connected to', address);
+    socket.emit("ppBridgeApp", { name: "node" });
     await askForMessage();
   });
 
