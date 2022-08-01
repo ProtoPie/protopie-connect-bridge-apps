@@ -12,6 +12,7 @@ io = socketio.Client()
 @io.on('connect')
 def on_connect():
     print('[SOCKERIO] Connected to server')
+    io.emit('ppBridgeApp', { 'name': 'python' })
 
 @io.on('ppMessage')
 def on_message(data):
