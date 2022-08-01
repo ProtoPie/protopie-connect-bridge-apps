@@ -13,7 +13,7 @@ const bleService = new BLEService({
 
 socket.on('connect', () => {
   console.log('Socket connected to', PC_ADDRESS);
-
+  socket.emit("ppBridgeApp", { name: "Arduino bluetooth" });
   bleService.start();
 });
 

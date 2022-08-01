@@ -21,6 +21,7 @@ const connectSocket = (io, address, handleMessageReceive) => {
     })
     .on('connect', async () => {
       console.log('[SOCKETIO] connected to', address);
+      socket.emit('ppBridgeApp', { name: 'midi-piano' });
     })
     .on('disconnect', () => {
       console.log('[SOCKETIO] disconnected');
