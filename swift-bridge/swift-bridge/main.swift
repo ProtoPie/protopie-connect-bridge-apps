@@ -8,7 +8,7 @@ let socket = manager.defaultSocket
 
 socket.on(clientEvent: .connect) {data, ack in
     print("Socket connected")
-    
+    socket.emit("ppBridgeApp", { "name": "swift" });
     socket.emit("ppMessage", [
                     "messageId": "event",
                     "value": "connected"
