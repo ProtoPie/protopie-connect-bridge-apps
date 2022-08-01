@@ -55,7 +55,7 @@
 
       // Once connected, it should send 'pcs-app-register' event with name
       socket.on('connect', function () {
-        socket.emit('pcs-app-register', {
+        socket.emit('ppBridgeApp', {
           name: 'Webapp',
         });
 

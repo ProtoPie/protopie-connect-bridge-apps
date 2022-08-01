@@ -23,6 +23,7 @@ socket
   })
   .on('connect', async () => {
     console.log('[SOCKETIO] connected to', ADDRESS);
+    socket.emit('ppBridgeApp', { name: 'media pipe' });
   });
 
 socket.on('disconnect', () => {

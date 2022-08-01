@@ -26,6 +26,8 @@
               alert(`ProtoPie Connect cannot found at ${address}`)
             )
             .on('connect', async () => {
+              //register bridge app
+              socket.emit('ppBridgeApp', { name: 'restful-api' }); 
               // send people's name to ProtoPie Connect
               socket.emit('ppMessage', {
                 messageId: 'people',
