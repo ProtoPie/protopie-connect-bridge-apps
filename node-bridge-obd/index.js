@@ -15,7 +15,7 @@ const requestPIDS = [
   '0D', // Vehicle speed
   '10', // Mass air flow sensor (MAF) air flow rate
   '14', // Oxygen Sensor Voltage
-  // Fiexed value from simulator
+  // Fixed value from simulator
   '01', // Monitors/DTC Count/MIL
   '03', // Fuel system status, https://en.wikipedia.org/wiki/OBD-II_PIDs#Service_01_PID_03
   '04', // Calculated Load Value
@@ -118,7 +118,6 @@ async function main(argv) {
 
   connect.on('connect', async () => {
     console.log('[Connect] Connected to', address);
-    connect.emit('ppBridgeApp', { name: 'OBD2' });
     if (!sim) {
       console.log('[Main] OBDReader started');
       await runOBDReader();

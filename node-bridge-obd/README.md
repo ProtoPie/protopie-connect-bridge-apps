@@ -5,7 +5,7 @@
 # Preparing
 
 1. Make bluetooth paired between macOS and ODBLinkMX+ first via system preference
-2. Run `npm install`
+2. Using node version 10, run `npm install`
 
 # How to run
 

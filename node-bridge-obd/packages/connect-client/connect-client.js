@@ -30,7 +30,10 @@ class ConnectClient {
   }
 
   _bindEvents() {
-    this._socket.on('connect', () => this._emit('connect'));
+    this._socket.on('connect', () => {
+      this._socket.emit('ppBridgeApp', { name: 'OBD2' });
+      this._emit('connect');
+    });
     this._socket.on('disconnect', () => this._emit('disconnect'));
     this._socket.on('ppMessage', (message) => this._emit('message', message));
 
