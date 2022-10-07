@@ -27,7 +27,7 @@ class GameController {
     this.emit('disconnect');
 
     window.removeEventListener('gamepadconnected', this._handleConnect);
-    window.removeEventListener('gamepaddisconnected', this._handleDiconnect);
+    window.removeEventListener('gamepaddisconnected', this._handleDisconnect);
 
     this._handler = {};
     this._disconnect = true;
