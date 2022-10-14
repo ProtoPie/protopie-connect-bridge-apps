@@ -1,0 +1,16 @@
+{
+  "name": "f1-game-telemetry",
+  "version": "1.0.0",
+  "description": "Get Formula 1 racing game telemetry data into ProtoPie Connect",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Sanju Lokuhitige <sanjurukshan@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "@racehub-io/f1-telemetry-client": "^0.2.8",
+    "socket.io-client": "^4.5.2"
+  },
+  "type": "module"
+}
