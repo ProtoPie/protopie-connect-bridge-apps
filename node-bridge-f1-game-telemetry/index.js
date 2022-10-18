@@ -28,10 +28,10 @@ process.on('SIGINT', function () {
 function init_f1_telemetry(socket) {
     for (const PACKET in PACKETS) {
       f1Client.on(PACKET, function (val) {
-          console.log('F1 Event', PACKET, val);
+          console.log('F1 Event', PACKET, JSON.stringify(units, (key, value) => (typeof value === 'bigint' ? value.toString() : value)));
           socket.emit('ppMessage', {
               messageId: PACKET,
-              value: val,
+              value: JSON.stringify(units, (key, value) => (typeof value === 'bigint' ? value.toString() : value)),
           });
       });
     }
