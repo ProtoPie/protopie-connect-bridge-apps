@@ -30,7 +30,6 @@ function init_f1_telemetry(socket) {
     for (const PACKET in PACKETS) {
       f1Client.on(PACKET, function (val) {
           //console.log('F1 Event', PACKET, JSON.stringify(val, (key, value) => (typeof value === 'bigint' ? value.toString() : value)));
-          
           switch(PACKET){
             case PACKETS.session:
               playerIndex = val.m_header.m_playerCarIndex;
@@ -99,10 +98,6 @@ function init_f1_telemetry(socket) {
               sendPacketDataToConnect(socket, 'final_numPenalties', val.m_classificationData[playerIndex].m_numPenalties);
               break;
           }
-          // socket.emit('ppMessage', {
-          //     messageId: PACKET,
-          //     value: JSON.stringify(val, (key, value) => (typeof value === 'bigint' ? value.toString() : value)),
-          // });
       });
     }
     console.log('Connecting to F1 Game');
@@ -112,9 +107,9 @@ function init_f1_telemetry(socket) {
 function sendPacketDataToConnect(socket, messageId, value){
   socket.emit('ppMessage', {
     messageId: messageId,
-    value: value//JSON.stringify(val, (key, value) => (typeof value === 'bigint' ? value.toString() : value)),
+    value: value
   });
-  //console.log('F1 Game to ppConnect', messageId, value);
+  console.log('F1 22 to ppConnect =>', messageId, value);
 }
 
 socket.on('connect_error', (err) => {
