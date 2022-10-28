@@ -83,6 +83,12 @@ function init_f1_telemetry(socket) {
               sendPacketDataToConnect(socket, 'carStatus_idleRPM', val.m_carStatusData[playerIndex].m_idleRPM);
               sendPacketDataToConnect(socket, 'carStatus_maxGears', val.m_carStatusData[playerIndex].m_maxGears);
               break;
+            case PACKETS.event:
+              if(val.m_eventStringCode === 'SSTA')
+                sendPacketDataToConnect(socket, 'event_sessionStarted');
+              else if(val.m_eventStringCode === 'SEND')
+                sendPacketDataToConnect(socket, 'event_sessionEnded');
+              break;
             case PACKETS.finalClassification:
               playerIndex = val.m_header.m_playerCarIndex;
               sendPacketDataToConnect(socket, 'final_totalCars', val.m_numCars);
