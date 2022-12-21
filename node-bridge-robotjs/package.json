@@ -1,0 +1,16 @@
+{
+  "name": "protopie-connect-with-robotjs",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "dependencies": {
+    "robotjs": "^0.6.0",
+    "socket.io-client": "^4.5.4"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  },
+  "author": "Jason"
+}
