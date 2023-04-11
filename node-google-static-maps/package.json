@@ -6,13 +6,18 @@
   "type": "module",
   "scripts": {
     "build": "tsc",
-    "start": "node dist/index.js"
+    "start": "tsc && node dist/index.js",
+    "dev": "nodemon dist/index.js"
   },
   "keywords": [],
   "author": "Sanju Lokuhitige",
   "license": "ISC",
   "devDependencies": {
     "@types/node": "^18.15.11",
+    "nodemon": "^2.0.22",
     "typescript": "^5.0.3"
+  },
+  "dependencies": {
+    "socket.io-client": "^4.6.1"
   }
 }
