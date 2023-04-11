@@ -12,11 +12,22 @@ This is a PoC project to use Google Static Maps to dynamically load into pie fil
 
 ## Configure the project
 
-Update Google-Static-Maps KEY value in the src/index.ts file
-- Follow [this link](https://developers.google.com/maps/documentation/maps-static/get-api-key) to obtain a key file
+Set up your `.env` file
 
-If you don't want to sign the API request make *DIGITAL_SIGNATURE = true* Update the Google-Static-Maps 'SECRET' value for digital signature in the src/index.ts file. By default DIGITAL_SIGNATURE is disabled. 
+- Copy `.env.example` into `.env`
+  Your `.env` file should look like this:
+
+```
+GOOGLE_STATIC_MAPS_API_KEY=
+GOOGLE_STATIC_MAPS_API_SECRET=
+```
+
+Update the GOOGLE_STATIC_MAPS_API_KEY in .env file
+- Follow [this link](https://developers.google.com/maps/documentation/maps-static/get-api-key) to obtain a key file
+ 
+Update the GOOGLE_STATIC_MAPS_API_SECRET in the .env file to sign the API request
 - Follow [this link](https://developers.google.com/maps/documentation/maps-static/digital-signature) for more information about digital signature
+- Obtaining the SECRET is optional; but good to have
 
 ## How this app works
 
