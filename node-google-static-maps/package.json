@@ -18,6 +18,7 @@
     "typescript": "^5.0.3"
   },
   "dependencies": {
+    "dotenv": "^16.0.3",
     "socket.io-client": "^4.6.1"
   }
 }

@@ -1,16 +1,12 @@
-import * as urlSigner from './urlSigner.cjs';
 import io from 'socket.io-client';
 import * as fs from 'fs';
 import * as os from 'os';
+import { KEY, SECRET } from './config.cjs';
+import * as urlSigner from './urlSigner.cjs';
 
-//Update Google Statics Maps KEY here
-const KEY = '';
+console.log('key', KEY);
+console.log('secret', SECRET);
 
-//Update Google Statics Maps secret for digital signature here
-const SECRET = '';
-
-//Make this true if you  want to use sign the request with the secret
-const DIGITAL_SIGNATURE = false;
 const OS_TYPE = os.type();
 
 let ppDataLocationMac = `/Users/${
@@ -72,7 +68,7 @@ function updatePPConnectData(
 }
 
 function formulateAPI(url: string) {
-  if (DIGITAL_SIGNATURE) return urlSigner.sign(url + `&key=${KEY}`, SECRET);
+  if (SECRET) return urlSigner.sign(url + `&key=${KEY}`, SECRET);
   else return url + `&key=${KEY}`;
 }
 
