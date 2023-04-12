@@ -4,8 +4,8 @@ import * as os from 'os';
 import { KEY, SECRET } from './config.cjs';
 import * as urlSigner from './urlSigner.cjs';
 
-console.log('key', KEY);
-console.log('secret', SECRET);
+//console.log('key', KEY);
+//console.log('secret', SECRET);
 
 const OS_TYPE = os.type();
 
@@ -63,8 +63,12 @@ function updatePPConnectData(
       api;
   }
 
-  fs.writeFileSync(ppPieDataFile, JSON.stringify(content));
-  console.log(`Updated ${ppPieDataFile}`);
+  try {
+    fs.writeFileSync(ppPieDataFile, JSON.stringify(content));
+    console.log(`Updated ${ppPieDataFile}`);
+  } catch (error) {
+    console.error('Error modifying content.' + error);
+  }
 }
 
 function formulateAPI(url: string) {
@@ -119,6 +123,15 @@ socket.on('ppMessage', (data) => {
   console.log('Receive an googleStaticMaps message from Connect', data);
   if (data.messageId == 'googleStaticMaps') {
     const jsonObject = JSON.parse(data.value);
+
+    if (
+      !jsonObject.pieId ||
+      !jsonObject.scene ||
+      !jsonObject.image ||
+      !jsonObject.api
+    )
+      return;
+
     const api = formulateAPI(jsonObject.api);
     updatePPConnectData(
       jsonObject.pieId,
