@@ -95,11 +95,6 @@ async function processVoiceRecordingAndRecognition() {
   });
 }
 
-/**
- * 使用 AK，SK 生成鉴权签名（Access Token）
- * @return string 鉴权签名信息（Access Token）
- */
-
 function getAccessToken() {
   const options = {
     method: 'POST',
