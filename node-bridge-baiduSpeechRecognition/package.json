@@ -1,0 +1,17 @@
+{
+  "name": "BaiduSpeechRecognition-node-bridgeapp",
+  "version": "1.0.0",
+  "description": "Baidu Speech Recognition bridge app",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Freddie Lee",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "child_process": "^1.0.2",
+    "fs": "^0.0.1-security",
+    "request": "^2.88.2",
+    "socket.io-client": "^4.6.1"
+  }
+}
