@@ -1,18 +1,19 @@
 const io = require('socket.io-client');
-const SerialPort = require('serialport');
-const Readline = require('@serialport/parser-readline');
+const { SerialPort } = require('serialport');
+const { ReadlineParser } = require('@serialport/parser-readline');
 
-const PORT_NAME = '/dev/cu.SLAB_USBtoUART';
+const PORT_NAME = '/dev/cu.usbmodem1101';
 const BAUDRATE = 9600;
 
-const port = new SerialPort(PORT_NAME, {
+const port = new SerialPort({
+  path: PORT_NAME,
   baudRate: BAUDRATE
 });
 
-port.on('open', function() {
+port.on('open', function () {
   console.log('Serial port opened', PORT_NAME);
 
-  const parser = port.pipe(new Readline({ delimiter: '\r\n' }));
+  const parser = port.pipe(new ReadlineParser({ delimiter: '\r\n' }));
   parser.on('data', data => {
     console.log('Message received', data);
     socket.emit('ppMessage', {
