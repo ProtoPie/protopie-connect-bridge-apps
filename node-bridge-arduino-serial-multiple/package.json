@@ -1,0 +1,12 @@
+{
+  "name": "arduino-serial-node-bridge-multiple",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "dependencies": {
+    "@serialport/parser-readline": "^12.0.0",
+    "serialport": "^12.0.0",
+    "socket.io-client": "^4.7.5"
+  }
+}
