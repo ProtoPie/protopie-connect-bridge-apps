@@ -1,0 +1,15 @@
+bidict==0.23.1
+certifi==2024.6.2
+chardet==5.2.0
+greenlet==3.0.3
+idna==3.7
+msgpack==1.0.8
+pynvim==0.5.0
+python-engineio==4.9.1
+python-socketio==5.11.2
+requests==2.32.3
+six==1.16.0
+urllib3==2.2.1
+pyserial==3.5
+pyserial_asyncio==0.6
+aiohttp==3.9.5
