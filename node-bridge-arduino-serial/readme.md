@@ -9,7 +9,7 @@
 You need to set the baudate to 9600 and change the name of the serial port in index.js. You can find out the name on Arduino IDE
 
 ```js
-const PORT_NAME = '/dev/cu.SLAB_USBtoUART';
+const PORT_NAME = '/dev/cu.usbmodem1101';
 ```
 
 ## Send message from serial to ProtoPie Connect
@@ -32,4 +32,19 @@ socket.on('ppMessage', message => {
   // Write a message to Arduino
   port.write(message.messageId);
 });
+```
+
+# Usage
+
+This bridge app is compatible with the current Node.js LTS version v20.12.2.
+
+To use this bridge app, you need to have Yarn package manager installed. Follow these steps to get started:
+
+1. Install the dependencies:
+```
+yarn install
+```
+2. Start the application:
+```
+yarn run start
 ```
