@@ -1,21 +1,38 @@
-# Connect Bridgeapp for Python
+# ProtoPie Connect Bridge App for Python
 
-> Python based program. You must use `python3`.
+A Python-based program to interact with ProtoPie Connect via Socket.IO messages. This allows you to send messages from your Python script to ProtoPie and receive messages sent from ProtoPie.
 
-# How to run
+Requires Python 3.8 or newer.
 
-## Install
+## Setup
 
-```sh
-pip3 install -r requirements.txt
-```
+It is highly recommended to use a Python virtual environment to manage dependencies.
 
-## Run
+1.  **Create and activate a virtual environment (Optional but recommended):**
+    ```bash
+    # Create environment (only needed once)
+    python -m venv venv
 
-```sh
-python3 client.py
-```
+    # Activate environment (do this every time you work on the project)
+    # On Linux/macOS:
+    source venv/bin/activate
+    # On Windows (Command Prompt/PowerShell):
+    # venv\Scripts\activate
+    ```
 
-# Licenses
+2.  **Install dependencies:**
+    Navigate to this directory (`python-bridge`) in your terminal and run:
+    ```bash
+    pip install -r requirements.txt
+    ```
 
-@ Studio XID
+## How to Run
+
+1.  Ensure ProtoPie Connect is running and listening (usually at `http://localhost:9981`).
+2.  Run the client script from this directory:
+    ```bash
+    python client.py
+    ```
+3.  The script will connect to ProtoPie Connect.
+4.  You can send messages to ProtoPie Connect by typing a `messageId` and `value` when prompted in the terminal.
+5.  Messages received from ProtoPie Connect (via the "Send to Bridge App" response) will be printed in the terminal.
