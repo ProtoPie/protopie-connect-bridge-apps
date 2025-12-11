@@ -11,14 +11,14 @@ io = socketio.Client()
 
 @io.on('connect')
 def on_connect():
-    print('[SOCKERIO] Connected to server')
+    print('[SOCKETIO] Connected to server')
     io.emit('ppBridgeApp', { 'name': 'python' })
 
 @io.on('ppMessage')
 def on_message(data):
     messageId = data['messageId']
     value = data['value'] if 'value' in data else None
-    print('[SOCKERIO] Receive a Message from connect', data)
+    print('[SOCKETIO] Receive a Message from connect', data)
 
 io.connect(address)
 
